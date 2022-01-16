@@ -7,6 +7,6 @@ orders as(
 ),
 final as (
     select orders.order_id, orders.customer_id, payments.amount
-    from orders inner join payments on orders.order_id = payments.orderid
+    from orders inner join payments on orders.order_id = payments.order_id
 )
 select * from final
