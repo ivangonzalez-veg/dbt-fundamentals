@@ -10,7 +10,7 @@ sources:
         description: Raw customers data.
         columns:
           - name: id
-            description: Primary key for customers
+            description: Primary key for customers data
             tests:
               - unique
               - not_null
@@ -19,7 +19,7 @@ sources:
         description: Raw orders data.
         columns:
           - name: id
-            description: Primary key for orders.
+            description: Primary key for orders data.
             loaded_at_field: _etl_loaded_at
             freshness:
               warn_after: {count: 12, period: hour}
@@ -27,3 +27,5 @@ sources:
             tests:
               - unique
               - not_null
+          - name: order_date
+            description: The date the order was placed.
