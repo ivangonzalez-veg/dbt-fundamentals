@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_payments
+    description: Payments made on each order
+    columns:
+      - name: order_id
+        description: Reference order number.
+        tests:
+          - not_null
+      - name: payment_method
+        description: '{{ doc("payment_method")}}'
+        tests:
+          - accepted_values:
+              values:
+                - credit_card
+                - coupon
+                - bank_transfer
+                - gift_card
