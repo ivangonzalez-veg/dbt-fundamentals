@@ -1,9 +1,7 @@
 {% macro new_db_schema_role(pilot_database_name, schema_name, new_role_name) -%}
 
 {#
-
 dbt run-operation new_db_schema_role --args '{"pilot_database_name": "db_test", "schema_name": "schema_test", "new_role_name": "role_test"}'
-
 {% set cfg = {
   'pilot_database_name': 'pilot',
   'schema_name': 'raw_stage',
@@ -51,8 +49,8 @@ grant create schema on database {{ cfg.pilot_database_name }} to role {{ cfg.new
 use role {{ cfg.new_role_name }};
 
 // Checking current role, current database, current schema;
-{#
+
 select current_role(), current_database(), current_schema();
-}#
+
 
 {%- endmacro %}
